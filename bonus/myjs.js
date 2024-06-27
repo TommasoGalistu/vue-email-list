@@ -1,7 +1,26 @@
-import { createApp } from 'vue';
-import { app } from './app';
+const { createApp, ref, onMounted } = Vue;
 
-createApp(app).mount('#app');
+createApp({
+  setup() {
+    const message = ref([]);
+
+    onMounted(() => {
+        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+            .then(risposta =>{
+                const result = risposta.data.response
+                message.value.push(result) ;
+                console.log(message.value)
+            })
+            .catch(error =>{
+                console.log(error)
+            }) 
+});
+
+    return {
+      message
+    };
+  }
+}).mount('#app');
 
 
     
