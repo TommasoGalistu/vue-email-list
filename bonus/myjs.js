@@ -1,28 +1,31 @@
-const {createApp} = Vue;
+import { createApp } from 'vue';
+import { app } from './app';
+
+createApp(app).mount('#app');
 
 
     
-createApp({
-    data(){
-        return {
-            arrEmail: [],
-        }
-    },
-    methods: {
+// createApp({
+//     data(){
+//         return {
+            
+//         }
+//     },
+//     methods: {
         
-    },
-    mounted(){
+//     },
+//     mounted(){
 
-        for (let i = 0; i < 10; i++) {
-            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-                .then(risposta =>{
-                    const result = risposta.data.response;
-                    this.arrEmail.push(result);
-                })
-                .catch(error =>{
-                    console.log(error)
-                }) 
-        }
+//         for (let i = 0; i < 10; i++) {
+//             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+//                 .then(risposta =>{
+//                     const result = risposta.data.response;
+//                     this.arrEmail.push(result);
+//                 })
+//                 .catch(error =>{
+//                     console.log(error)
+//                 }) 
+//         }
         
-    }   
-}).mount('#app');
+//     }   
+// }).mount('#app');
